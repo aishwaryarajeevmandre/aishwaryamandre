@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Aishwarya Mandre — Supply Chain Professional</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Syne:wght@400;500;600;700&family=Inconsolata:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --cream: #FAF7F2;
+  --cream2: #F3EEE6;
+  --ivory: #FFFFFF;
+  --navy: #152040;
+  --terra: #C4622D;
+  --terra2: #E07848;
+  --terra-pale: #F9EDE6;
+  --sage: #4a7c6b;
+  --sage-pale: #dceee8;
+  --text: #1a1a1a;
+  --text2: #4a4540;
+  --text3: #8a8078;
+  --border: rgba(21,32,64,0.1);
+  --border2: rgba(21,32,64,0.06);
+  --shadow: 0 2px 20px rgba(21,32,64,0.07);
+  --shadow-lg: 0 8px 40px rgba(21,32,64,0.12);
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'Syne',sans-serif; background:var(--cream); color:var(--text); overflow-x:hidden; }
+
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:200;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:1.4rem 5rem;
+  background:rgba(250,247,242,0.95);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border2);
+}
+.nav-logo { font-family:'Playfair Display',serif; font-size:1.05rem; font-weight:700; color:var(--navy); }
+.nav-logo span { color:var(--terra); }
+.nav-links { display:flex; gap:2.5rem; list-style:none; }
+.nav-links a { font-size:0.72rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:var(--text3); text-decoration:none; transition:color 0.25s; cursor:pointer; }
+.nav-links a:hover { color:var(--terra); }
+.nav-hire { padding:0.5rem 1.4rem; background:var(--navy); color:#fff !important; }
+.nav-hire:hover { background:var(--terra) !important; }
+.nav-avail { display:flex; align-items:center; gap:0.5rem; font-size:0.68rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--sage); }
+.nav-dot { width:7px; height:7px; border-radius:50%; background:var(--sage); animation:blink 2s ease-in-out infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+#hero {
+  min-height:100vh; display:grid; grid-template-columns:1fr 420px;
+  align-items:center; gap:4rem; padding:0 5rem;
+  position:relative; overflow:hidden;
+}
+.hero-blob { position:absolute; right:-100px; top:-60px; width:680px; height:680px; border-radius:50%; background:radial-gradient(circle at 40% 40%, var(--terra-pale) 0%, var(--cream2) 55%, transparent 75%); z-index:0; }
+.hero-left { position:relative; z-index:1; }
+.hero-pill {
+  display:inline-flex; align-items:center; gap:0.6rem;
+  font-family:'Inconsolata',monospace; font-size:0.65rem; letter-spacing:0.2em;
+  color:var(--terra); text-transform:uppercase;
+  padding:0.35rem 1rem; border:1px solid rgba(196,98,45,0.25);
+  background:var(--terra-pale); border-radius:2rem; margin-bottom:2rem;
+  opacity:0; animation:fadeUp 0.6s 0.1s forwards;
+}
+.hero-pill::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--terra); }
+.hero-name { font-family:'Playfair Display',serif; font-size:clamp(3.5rem,6vw,6rem); font-weight:900; line-height:1; color:var(--navy); margin-bottom:0.5rem; opacity:0; animation:fadeUp 0.7s 0.25s forwards; }
+.hero-name em { font-style:italic; font-weight:400; color:var(--terra); display:block; }
+.hero-desc { font-size:1rem; font-weight:400; color:var(--text2); line-height:1.75; max-width:500px; margin-top:1.2rem; margin-bottom:2.5rem; opacity:0; animation:fadeUp 0.7s 0.4s forwards; }
+.hero-desc strong { color:var(--navy); font-weight:600; }
+.hero-btns { display:flex; gap:1rem; flex-wrap:wrap; opacity:0; animation:fadeUp 0.7s 0.55s forwards; }
+.btn-primary { display:inline-flex; align-items:center; gap:0.5rem; padding:0.85rem 2rem; background:var(--navy); color:#fff; font-size:0.75rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; text-decoration:none; cursor:pointer; transition:background 0.25s, transform 0.2s; border:2px solid var(--navy); }
+.btn-primary:hover { background:var(--terra); border-color:var(--terra); transform:translateY(-2px); }
+.btn-secondary { display:inline-flex; align-items:center; gap:0.5rem; padding:0.85rem 2rem; background:transparent; color:var(--navy); font-size:0.75rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; text-decoration:none; cursor:pointer; transition:all 0.25s; border:2px solid var(--border); }
+.btn-secondary:hover { border-color:var(--terra); color:var(--terra); }
+
+.hero-right { position:relative; z-index:1; opacity:0; animation:fadeLeft 0.8s 0.6s forwards; }
+.hero-card { background:white; border:1px solid var(--border); box-shadow:var(--shadow-lg); padding:2.5rem; position:relative; }
+.hc-badge { position:absolute; top:-14px; left:2rem; background:var(--terra); color:#fff; font-family:'Inconsolata',monospace; font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; padding:0.35rem 0.9rem; }
+.hc-title { font-family:'Playfair Display',serif; font-size:1rem; font-weight:500; color:var(--navy); margin-bottom:1.5rem; padding-bottom:1rem; border-bottom:1px solid var(--border2); }
+.metrics { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem; }
+.metric { padding:1.2rem; background:var(--cream2); text-align:center; }
+.metric-val { font-family:'Playfair Display',serif; font-size:2rem; font-weight:900; color:var(--terra); line-height:1; display:block; }
+.metric-lbl { font-size:0.62rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--text3); margin-top:0.3rem; }
+.hc-avail { display:flex; align-items:center; gap:0.6rem; font-size:0.75rem; color:var(--sage); font-weight:500; }
+.avail-dot { width:8px; height:8px; border-radius:50%; background:var(--sage); animation:blink 2s infinite; }
+
+section { padding:7rem 0; }
+.container { max-width:1140px; margin:0 auto; padding:0 5rem; }
+.sec-head { margin-bottom:4rem; }
+.sec-row { display:flex; align-items:baseline; gap:1rem; margin-bottom:0.5rem; }
+.sec-num { font-family:'Inconsolata',monospace; font-size:0.62rem; letter-spacing:0.2em; color:var(--terra); }
+.sec-title { font-family:'Playfair Display',serif; font-size:clamp(2rem,3.5vw,3rem); font-weight:700; color:var(--navy); line-height:1.1; }
+.sec-title em { font-style:italic; font-weight:400; color:var(--terra); }
+.sec-line { height:2px; width:60px; background:var(--terra); margin-top:0.8rem; }
+
+#about { background:var(--ivory); }
+.about-wrap { display:grid; grid-template-columns:1fr 380px; gap:5rem; align-items:start; }
+.about-body p { font-size:1rem; line-height:1.85; color:var(--text2); font-weight:400; margin-bottom:1.4rem; }
+.about-body p strong { color:var(--navy); font-weight:600; }
+.about-quote { border-left:3px solid var(--terra); padding:1rem 1.5rem; background:var(--terra-pale); margin:2rem 0; }
+.about-quote p { font-family:'Playfair Display',serif; font-style:italic; font-size:1.05rem; color:var(--navy); margin:0 !important; }
+.about-side { display:flex; flex-direction:column; gap:1rem; }
+.info-block { background:var(--cream); border:1px solid var(--border); padding:1.4rem; }
+.ib-label { font-family:'Inconsolata',monospace; font-size:0.58rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--terra); margin-bottom:0.6rem; display:block; }
+.ib-val { font-size:0.85rem; color:var(--text2); line-height:1.6; }
+.chip-row { display:flex; flex-wrap:wrap; gap:0.4rem; margin-top:0.5rem; }
+.chip { font-size:0.6rem; letter-spacing:0.1em; text-transform:uppercase; padding:0.28rem 0.65rem; border:1px solid var(--border); color:var(--text3); background:white; }
+
+#skills { background:var(--cream); }
+.skills-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+.sk-card { background:white; border:1px solid var(--border); padding:2rem; position:relative; overflow:hidden; transition:transform 0.3s, box-shadow 0.3s; }
+.sk-card::after { content:''; position:absolute; bottom:0; left:0; right:0; height:3px; background:linear-gradient(90deg, var(--terra), var(--terra2)); transform:scaleX(0); transform-origin:left; transition:transform 0.35s; }
+.sk-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-lg); }
+.sk-card:hover::after { transform:scaleX(1); }
+.sk-icon { width:40px; height:40px; background:var(--cream2); display:flex; align-items:center; justify-content:center; font-size:1rem; margin-bottom:1.2rem; }
+.sk-name { font-family:'Playfair Display',serif; font-size:1.1rem; font-weight:500; color:var(--navy); margin-bottom:1rem; }
+.sk-list { list-style:none; display:flex; flex-direction:column; gap:0.5rem; }
+.sk-list li { font-size:0.8rem; color:var(--text2); padding-left:1rem; position:relative; line-height:1.5; }
+.sk-list li::before { content:''; position:absolute; left:0; top:0.55em; width:5px; height:1.5px; background:var(--terra); }
+
+#experience { background:var(--ivory); }
+.exp-list { display:flex; flex-direction:column; }
+.exp-item { display:grid; grid-template-columns:220px 1fr; gap:3rem; padding:3.5rem 0; border-bottom:1px solid var(--border2); }
+.exp-item:last-child { border-bottom:none; }
+.exp-period { font-family:'Inconsolata',monospace; font-size:0.62rem; letter-spacing:0.15em; color:var(--terra); display:block; margin-bottom:0.6rem; }
+.exp-co { font-size:0.8rem; color:var(--text3); line-height:1.4; }
+.exp-badge-co { display:inline-block; margin-top:0.6rem; font-size:0.6rem; letter-spacing:0.12em; text-transform:uppercase; padding:0.25rem 0.65rem; background:var(--sage-pale); color:var(--sage); }
+.exp-role { font-family:'Playfair Display',serif; font-size:1.6rem; font-weight:700; color:var(--navy); margin-bottom:0.2rem; }
+.exp-function { font-size:0.7rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--terra); margin-bottom:1.4rem; }
+.exp-bullets { list-style:none; display:flex; flex-direction:column; gap:0.85rem; }
+.exp-bullets li { font-size:0.88rem; line-height:1.75; color:var(--text2); padding-left:1.3rem; position:relative; font-weight:400; }
+.exp-bullets li::before { content:''; position:absolute; left:0; top:0.75em; width:6px; height:1.5px; background:var(--terra); }
+.exp-bullets li strong { color:var(--navy); font-weight:600; }
+.exp-kpis { display:flex; gap:0.8rem; flex-wrap:wrap; margin-top:1.2rem; }
+.kpi { display:flex; align-items:center; gap:0.5rem; padding:0.5rem 1rem; background:var(--terra-pale); border:1px solid rgba(196,98,45,0.15); }
+.kpi-val { font-family:'Playfair Display',serif; font-size:1.1rem; font-weight:700; color:var(--terra); }
+.kpi-lbl { font-size:0.62rem; color:var(--text3); }
+
+#projects { background:var(--cream); }
+.proj-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; }
+.proj-card { background:white; border:1px solid var(--border); padding:2.5rem; transition:box-shadow 0.3s, transform 0.3s; position:relative; overflow:hidden; }
+.proj-card:hover { box-shadow:var(--shadow-lg); transform:translateY(-3px); }
+.proj-num { font-family:'Inconsolata',monospace; font-size:0.6rem; letter-spacing:0.2em; color:var(--text3); display:block; margin-bottom:1rem; }
+.proj-icon { width:44px; height:44px; background:var(--cream2); display:flex; align-items:center; justify-content:center; font-size:1rem; margin-bottom:1.2rem; }
+.proj-title { font-family:'Playfair Display',serif; font-size:1.2rem; font-weight:700; color:var(--navy); margin-bottom:0.8rem; }
+.proj-desc { font-size:0.83rem; line-height:1.75; color:var(--text2); font-weight:400; margin-bottom:1.5rem; }
+.proj-tags { display:flex; flex-wrap:wrap; gap:0.4rem; }
+.ptag { font-size:0.6rem; letter-spacing:0.12em; text-transform:uppercase; padding:0.25rem 0.65rem; background:var(--cream2); border:1px solid var(--border); color:var(--text3); }
+
+#certifications { background:var(--ivory); }
+.cert-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1rem; }
+.cert-item { display:flex; align-items:center; gap:1rem; padding:1.2rem 1.5rem; background:var(--cream); border:1px solid var(--border); transition:border-color 0.25s, background 0.25s; }
+.cert-item:hover { border-color:var(--terra); background:var(--terra-pale); }
+.cert-icon { width:34px; height:34px; flex-shrink:0; background:var(--terra); display:flex; align-items:center; justify-content:center; font-size:0.58rem; color:white; font-family:'Inconsolata',monospace; font-weight:500; }
+.cert-name { font-size:0.83rem; color:var(--text2); line-height:1.4; font-weight:500; }
+
+#education { background:var(--cream); }
+.edu-list { display:flex; flex-direction:column; }
+.edu-item { display:grid; grid-template-columns:220px 1fr; gap:3rem; padding:2.5rem 0; border-bottom:1px solid var(--border2); }
+.edu-item:last-child { border-bottom:none; }
+.edu-period { font-family:'Inconsolata',monospace; font-size:0.62rem; letter-spacing:0.15em; color:var(--terra); display:block; padding-top:0.2rem; }
+.edu-deg { font-family:'Playfair Display',serif; font-size:1.3rem; font-weight:700; color:var(--navy); margin-bottom:0.25rem; }
+.edu-school { font-size:0.82rem; color:var(--text3); }
+
+#contact { background:var(--navy); text-align:center; padding:8rem 0; position:relative; overflow:hidden; }
+#contact::before { content:''; position:absolute; top:-100px; left:50%; transform:translateX(-50%); width:600px; height:600px; border-radius:50%; background:radial-gradient(circle, rgba(196,98,45,0.15) 0%, transparent 70%); }
+.contact-label { font-family:'Inconsolata',monospace; font-size:0.65rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--terra2); margin-bottom:1.5rem; display:block; position:relative; z-index:1; }
+.contact-title { font-family:'Playfair Display',serif; font-size:clamp(2.5rem,5vw,5rem); font-weight:700; color:#fff; line-height:1.05; margin-bottom:1rem; position:relative; z-index:1; }
+.contact-title em { font-style:italic; font-weight:400; color:var(--terra2); }
+.contact-sub { font-size:0.95rem; color:rgba(255,255,255,0.5); max-width:420px; margin:0 auto 3.5rem; line-height:1.7; font-weight:400; position:relative; z-index:1; }
+.contact-row { display:flex; gap:1.5rem; justify-content:center; flex-wrap:wrap; position:relative; z-index:1; }
+.contact-link { display:flex; align-items:center; gap:0.7rem; font-size:0.75rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.7); text-decoration:none; cursor:pointer; padding:0.9rem 1.8rem; border:1.5px solid rgba(255,255,255,0.15); transition:all 0.3s; }
+.contact-link:hover { border-color:var(--terra2); color:#fff; background:rgba(196,98,45,0.15); }
+.contact-link svg { width:15px; height:15px; flex-shrink:0; }
+
+footer { text-align:center; padding:1.8rem; background:var(--navy); border-top:1px solid rgba(255,255,255,0.06); font-family:'Inconsolata',monospace; font-size:0.6rem; letter-spacing:0.15em; color:rgba(255,255,255,0.25); }
+
+@keyframes fadeUp { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:none} }
+@keyframes fadeLeft { from{opacity:0;transform:translateX(22px)} to{opacity:1;transform:none} }
+.reveal { opacity:0; transform:translateY(20px); transition:opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity:1; transform:none; }
+
+::-webkit-scrollbar { width:3px; }
+::-webkit-scrollbar-track { background:var(--cream); }
+::-webkit-scrollbar-thumb { background:var(--terra); }
+
+@media(max-width:900px) {
+  nav { padding:1.2rem 1.5rem; }
+  .nav-links { display:none; }
+  .container { padding:0 1.5rem; }
+  #hero { grid-template-columns:1fr; padding:7rem 1.5rem 4rem; gap:3rem; }
+  .hero-right { display:none; }
+  .about-wrap, .skills-grid, .proj-grid, .cert-grid { grid-template-columns:1fr; }
+  .exp-item, .edu-item { grid-template-columns:1fr; gap:1rem; }
+  section { padding:4rem 0; }
+}
+</style>
+</head>
+<body>
+
+<nav id="topnav">
+  <div class="nav-logo">Aishwarya <span>Mandre</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#certifications">Certs</a></li>
+    <li><a href="#contact" class="nav-hire">Hire Me</a></li>
+  </ul>
+  <div class="nav-avail"><div class="nav-dot"></div> Open to Opportunities</div>
+</nav>
+
+<section id="hero">
+  <div class="hero-blob"></div>
+  <div class="hero-left">
+    <div class="hero-pill">MS Supply Chain Management &nbsp;·&nbsp; UT Dallas 2026</div>
+    <h1 class="hero-name">Aishwarya<em>Mandre</em></h1>
+    <p class="hero-desc">
+      Supply chain and operations professional with <strong>5+ years</strong> turning demand volatility, supplier complexity, and inventory risk into measurable outcomes. Fluent in SAP, Power BI, and Excel Solver. <strong>Six Sigma Green Belt</strong> certified.
+    </p>
+    <div class="hero-btns">
+      <a href="#experience" class="btn-primary">View Experience</a>
+      <a href="mailto:aishwaryarajeevmandre@gmail.com" class="btn-secondary">Get in Touch</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-card">
+      <div class="hc-badge">Impact at a Glance</div>
+      <div class="hc-title">Key Achievements</div>
+      <div class="metrics">
+        <div class="metric"><span class="metric-val">15%</span><div class="metric-lbl">Cost Reduction</div></div>
+        <div class="metric"><span class="metric-val">$18K</span><div class="metric-lbl">Annual Savings</div></div>
+        <div class="metric"><span class="metric-val">75%</span><div class="metric-lbl">Automated</div></div>
+        <div class="metric"><span class="metric-val">20%</span><div class="metric-lbl">Faster Delivery</div></div>
+      </div>
+      <div class="hc-avail"><div class="avail-dot"></div> Actively seeking full-time roles</div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="sec-row"><span class="sec-num">01 —</span><h2 class="sec-title">About <em>Me</em></h2></div>
+      <div class="sec-line"></div>
+    </div>
+    <div class="about-wrap">
+      <div class="about-body reveal">
+        <p>I am a <strong>supply chain and operations professional</strong> with over five years of hands-on experience across procurement, inventory planning, demand forecasting, and logistics analytics. Currently pursuing an <strong>MS in Supply Chain Management</strong> at the University of Texas at Dallas, graduating May 2026.</p>
+        <div class="about-quote"><p>"I transform supply chain complexity into clarity — through data, systems, and cross-functional leadership."</p></div>
+        <p>My expertise spans the full supply chain lifecycle — from <strong>MRP execution and vendor management</strong> to real-time dashboard development and SKU-level forecasting. I have worked across pharma, organics, and operations verticals, delivering measurable outcomes in cost, speed, and service quality.</p>
+        <p>I am fluent in <strong>SAP MM/IBP, Power BI, Tableau, Kinaxis, NetSuite</strong>, and advanced Excel, and hold a <strong>Six Sigma Green Belt</strong> and CSCMP Demand Planning certification among 10 total credentials.</p>
+      </div>
+      <div class="about-side reveal">
+        <div class="info-block"><span class="ib-label">Location</span><div class="ib-val">Dallas, TX &nbsp;·&nbsp; Open to Relocation Nationwide</div></div>
+        <div class="info-block"><span class="ib-label">Education</span><div class="ib-val">MS Supply Chain Management<br>UT Dallas &nbsp;·&nbsp; Expected May 2026</div></div>
+        <div class="info-block">
+          <span class="ib-label">Specializations</span>
+          <div class="chip-row">
+            <span class="chip">Procurement</span><span class="chip">Inventory Planning</span>
+            <span class="chip">Demand Forecasting</span><span class="chip">Supply Chain Analytics</span>
+            <span class="chip">MRP Execution</span><span class="chip">Materials Management</span>
+            <span class="chip">Logistics</span><span class="chip">Supplier Management</span>
+          </div>
+        </div>
+        <div class="info-block"><span class="ib-label">Contact</span><div class="ib-val">aishwaryarajeevmandre@gmail.com<br>(972) 878-9446</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="sec-row"><span class="sec-num">02 —</span><h2 class="sec-title">Core <em>Skills</em></h2></div>
+      <div class="sec-line"></div>
+    </div>
+    <div class="skills-grid">
+      <div class="sk-card reveal"><div class="sk-icon">⚙️</div><div class="sk-name">ERP / MRP Systems</div><ul class="sk-list"><li>SAP ERP (MM, Logistics)</li><li>SAP IBP</li><li>Kinaxis RapidResponse</li><li>NetSuite &amp; MS Dynamics</li><li>MRP Execution &amp; BOM Management</li><li>Product Lifecycle Management</li></ul></div>
+      <div class="sk-card reveal"><div class="sk-icon">📊</div><div class="sk-name">Analytics &amp; BI</div><ul class="sk-list"><li>Power BI (Real-time Dashboards)</li><li>Tableau BI</li><li>Excel (PivotTables, Macros, Solver)</li><li>SQL Querying</li><li>Scenario &amp; What-If Analysis</li><li>Google Data Analytics</li></ul></div>
+      <div class="sk-card reveal"><div class="sk-icon">🔗</div><div class="sk-name">Supply Chain Operations</div><ul class="sk-list"><li>Inventory Optimization</li><li>Demand Forecasting</li><li>Procure-to-Pay</li><li>Supplier Performance Management</li><li>Capacity Planning</li><li>Six Sigma Green Belt</li></ul></div>
+      <div class="sk-card reveal"><div class="sk-icon">🚚</div><div class="sk-name">Logistics &amp; Planning</div><ul class="sk-list"><li>Transportation Capacity Planning</li><li>Freight &amp; Carrier Coordination</li><li>International Shipping &amp; Customs</li><li>WMS / WES Basics</li><li>Contingency &amp; Risk Planning</li></ul></div>
+      <div class="sk-card reveal"><div class="sk-icon">🛠️</div><div class="sk-name">Collaboration Tools</div><ul class="sk-list"><li>SharePoint &amp; Confluence</li><li>Microsoft Project</li><li>Jira</li><li>AutoCAD (Layout Design)</li><li>Agile Project Management</li></ul></div>
+      <div class="sk-card reveal"><div class="sk-icon">🎓</div><div class="sk-name">Methodologies</div><ul class="sk-list"><li>Six Sigma DMAIC</li><li>CSCMP Demand Planning</li><li>Capacity &amp; Load Balancing</li><li>Lean Operations</li><li>Supply Chain Analytics</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="sec-row"><span class="sec-num">03 —</span><h2 class="sec-title">Work <em>Experience</em></h2></div>
+      <div class="sec-line"></div>
+    </div>
+    <div class="exp-list">
+      <div class="exp-item reveal">
+        <div>
+          <span class="exp-period">JUN 2025 — DEC 2025</span>
+          <div class="exp-co">RAAH Group Inc</div>
+          <div class="exp-co">Virginia, USA</div>
+          <span class="exp-badge-co">Operations</span>
+        </div>
+        <div>
+          <div class="exp-role">Lead Operations Executive</div>
+          <div class="exp-function">Procurement · Logistics · Analytics</div>
+          <ul class="exp-bullets">
+            <li>Optimized procurement workflows via vendor benchmarking and purchase cycle consolidation, achieving a <strong>15% reduction in purchasing costs</strong> and improved supplier responsiveness across multiple regions.</li>
+            <li>Forecasted daily transportation capacity requirements and coordinated with freight carriers to ensure uninterrupted shipment flow aligned with MRP-driven production schedules.</li>
+            <li>Planned and executed logistics strategies by liaising with freight forwarders and customs agents, driving a <strong>20% improvement in delivery timelines</strong> for domestic and international shipments.</li>
+            <li>Built real-time <strong>Power BI dashboards</strong> to monitor inventory levels, procurement KPIs, and material coverage, enabling faster exception management and data-driven decision support.</li>
+            <li>Led capacity risk mitigation by identifying transportation bottlenecks and implementing contingency plans that stabilized outbound logistics during demand fluctuations.</li>
+          </ul>
+          <div class="exp-kpis">
+            <div class="kpi"><span class="kpi-val">15%</span><span class="kpi-lbl">Cost Saved</span></div>
+            <div class="kpi"><span class="kpi-val">20%</span><span class="kpi-lbl">Faster Delivery</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="exp-item reveal">
+        <div>
+          <span class="exp-period">JAN 2021 — JAN 2023</span>
+          <div class="exp-co">Varuneshwar Organics</div>
+          <div class="exp-co">India</div>
+          <span class="exp-badge-co">Supply Chain</span>
+        </div>
+        <div>
+          <div class="exp-role">Supply Chain Analyst</div>
+          <div class="exp-function">Demand Planning · SAP · Vendor Management</div>
+          <ul class="exp-bullets">
+            <li>Led demand planning and forecasting using SAP and Excel, <strong>reducing stockouts by 15%</strong> and improving SKU-level accuracy across 50+ products.</li>
+            <li>Automated <strong>75% of SAP reorder processes</strong> and developed digital procurement workflows collaborating with engineering, finance, and cross-functional teams to streamline MRP execution.</li>
+            <li>Achieved <strong>$18,000 in annual savings</strong> by optimizing vendor contracts and leading structured supplier performance reviews.</li>
+            <li>Conducted throughput and constraint analysis across inbound material flows, identifying capacity imbalances and improving production continuity during demand spikes.</li>
+            <li>Improved procure-to-pay alignment by collaborating with finance on invoice cycle optimization, enhancing supplier satisfaction and payment accuracy.</li>
+          </ul>
+          <div class="exp-kpis">
+            <div class="kpi"><span class="kpi-val">$18K</span><span class="kpi-lbl">Annual Savings</span></div>
+            <div class="kpi"><span class="kpi-val">75%</span><span class="kpi-lbl">Automated</span></div>
+            <div class="kpi"><span class="kpi-val">15%</span><span class="kpi-lbl">Less Stockouts</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="exp-item reveal">
+        <div>
+          <span class="exp-period">JAN 2020 — JAN 2021</span>
+          <div class="exp-co">Grinsons Phytoherb Pvt Ltd</div>
+          <div class="exp-co">India</div>
+          <span class="exp-badge-co">Operations</span>
+        </div>
+        <div>
+          <div class="exp-role">Supply Chain &amp; Operations Analyst</div>
+          <div class="exp-function">Inventory · Capacity · Quality Compliance</div>
+          <ul class="exp-bullets">
+            <li>Spearheaded workflow optimizations that <strong>reduced lead times by 14.5%</strong> for key SKUs, directly improving production velocity and on-time material delivery.</li>
+            <li>Led inventory reconciliation for <strong>2,000+ monthly units</strong>, minimizing overstock by 12% and cutting $4,500/year in holding costs through improved inventory parameter management.</li>
+            <li>Developed capacity allocation plans during raw material shortages by prioritizing high-impact SKUs, safeguarding service levels under constrained supply.</li>
+            <li>Enforced raw material quality compliance, <strong>reducing rejections by 10%</strong>.</li>
+          </ul>
+          <div class="exp-kpis">
+            <div class="kpi"><span class="kpi-val">14.5%</span><span class="kpi-lbl">Lead Time Cut</span></div>
+            <div class="kpi"><span class="kpi-val">12%</span><span class="kpi-lbl">Less Overstock</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="sec-row"><span class="sec-num">04 —</span><h2 class="sec-title">Projects &amp; <em>Simulations</em></h2></div>
+      <div class="sec-line"></div>
+    </div>
+    <div class="proj-grid">
+      <div class="proj-card reveal"><span class="proj-num">01 — Featured</span><div class="proj-icon">📐</div><div class="proj-title">Optimization-Based Demand &amp; Capacity Model</div><p class="proj-desc">Developed data-driven capacity and logistics models using SQL and Excel Solver to analyze flow variability, resource constraints, and operational performance trends across inventory and fulfillment datasets.</p><div class="proj-tags"><span class="ptag">Excel Solver</span><span class="ptag">SQL</span><span class="ptag">Capacity Planning</span></div></div>
+      <div class="proj-card reveal"><span class="proj-num">02</span><div class="proj-icon">🗄️</div><div class="proj-title">SQL-Based Inventory &amp; Order Analytics</div><p class="proj-desc">Queried inventory and fulfillment datasets using SQL to assess cycle times, stock turnover, and delivery reliability. Generated insights that informed procurement schedules and reduced excess inventory.</p><div class="proj-tags"><span class="ptag">SQL</span><span class="ptag">Inventory Analytics</span><span class="ptag">Procurement</span></div></div>
+      <div class="proj-card reveal"><span class="proj-num">03</span><div class="proj-icon">📈</div><div class="proj-title">Tableau Supplier Performance Dashboard</div><p class="proj-desc">Built dashboards to visualize supplier KPIs including delivery punctuality, lead time variability, and cost deviation, enabling procurement teams to monitor vendor efficiency and drive improvements.</p><div class="proj-tags"><span class="ptag">Tableau</span><span class="ptag">Supplier KPIs</span><span class="ptag">Data Visualization</span></div></div>
+      <div class="proj-card reveal"><span class="proj-num">04</span><div class="proj-icon">🔮</div><div class="proj-title">SKU-Level Demand Forecasting Model</div><p class="proj-desc">Created SKU-level forecasting models using Excel Solver capturing seasonality and constraints, enhancing demand planning accuracy and supporting better inventory availability across a full product portfolio.</p><div class="proj-tags"><span class="ptag">Excel</span><span class="ptag">Forecasting</span><span class="ptag">Demand Planning</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="certifications">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="sec-row"><span class="sec-num">05 —</span><h2 class="sec-title">Certifi<em>cations</em></h2></div>
+      <div class="sec-line"></div>
+    </div>
+    <div class="cert-grid reveal">
+      <div class="cert-item"><div class="cert-icon">SS</div><div class="cert-name">Six Sigma Green Belt</div></div>
+      <div class="cert-item"><div class="cert-icon">DP</div><div class="cert-name">CSCMP Demand Planning</div></div>
+      <div class="cert-item"><div class="cert-icon">CP</div><div class="cert-name">Capacity Planning &amp; Load Balancing</div></div>
+      <div class="cert-item"><div class="cert-icon">SC</div><div class="cert-name">Supply Chain Analytics</div></div>
+      <div class="cert-item"><div class="cert-icon">SP</div><div class="cert-name">SAP Certified</div></div>
+      <div class="cert-item"><div class="cert-icon">PB</div><div class="cert-name">Power BI Data Analyst</div></div>
+      <div class="cert-item"><div class="cert-icon">TB</div><div class="cert-name">Tableau BI Analyst</div></div>
+      <div class="cert-item"><div class="cert-icon">GD</div><div class="cert-name">Google Data Analytics</div></div>
+      <div class="cert-item"><div class="cert-icon">AG</div><div class="cert-name">Agile Project Management</div></div>
+      <div class="cert-item"><div class="cert-icon">SQ</div><div class="cert-name">SQL Essential Training</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="sec-row"><span class="sec-num">06 —</span><h2 class="sec-title">Academic <em>Background</em></h2></div>
+      <div class="sec-line"></div>
+    </div>
+    <div class="edu-list">
+      <div class="edu-item reveal"><div><span class="edu-period">AUG 2024 — MAY 2026</span></div><div><div class="edu-deg">Master of Science, Supply Chain Management</div><div class="edu-school">University of Texas at Dallas</div></div></div>
+      <div class="edu-item reveal"><div><span class="edu-period">JUL 2023</span></div><div><div class="edu-deg">Post-Graduation Diploma, International Business Operations</div><div class="edu-school">Indira Gandhi Open University</div></div></div>
+      <div class="edu-item reveal"><div><span class="edu-period">MAY 2022</span></div><div><div class="edu-deg">Bachelor of Business Administration, International Business</div><div class="edu-school">MIT World Peace University</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <span class="contact-label reveal">Open to Opportunities</span>
+    <h2 class="contact-title reveal">Let's <em>Work Together</em></h2>
+    <p class="contact-sub reveal">Actively seeking full-time roles in supply chain, procurement, and operations analytics. Based in Dallas, open to nationwide relocation.</p>
+    <div class="contact-row reveal">
+      <a href="mailto:aishwaryarajeevmandre@gmail.com" class="contact-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+        Email Me
+      </a>
+      <a href="tel:9728789446" class="contact-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.37h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        (972) 878-9446
+      </a>
+      <a href="https://www.linkedin.com/in/aishwarya-mandre/" target="_blank" class="contact-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>&copy; 2026 &nbsp;·&nbsp; Aishwarya Mandre &nbsp;·&nbsp; Supply Chain Professional &nbsp;·&nbsp; Dallas, TX</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+window.addEventListener('scroll', () => {
+  const sections = document.querySelectorAll('section[id]');
+  const links = document.querySelectorAll('.nav-links a');
+  let current = '';
+  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 200) current = s.id; });
+  links.forEach(a => { a.style.color = a.getAttribute('href') === '#' + current ? 'var(--terra)' : ''; });
+});
+</script>
+</body>
+</html>
